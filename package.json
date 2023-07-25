@@ -1,0 +1,19 @@
+{
+  "name": "kick-starting-node-js",
+  "version": "1.0.0",
+  "description": "this is kick starting node js",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon task6.js",
+    "start-server": "nodemon task6.js"
+  },
+  "author": "riti kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
