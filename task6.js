@@ -4,27 +4,19 @@ const express = require('express')
 
 const bodyParser = require('body-parser')
 
-
 const app = express()
+
+const adminrouter=require('./routes/admin')
+const shop = require('./routes/shop')
 
 app.use(bodyParser.urlencoded({extended:false}))
 
-app.use('/add',(req,res,next)=>{
-    console.log('this is app middleware')
-    res.send('<form action="/product" method="POST"><input type="text" name="title"> <input type="number" name="range"> <button type="submit" >Submit</button></form>')
-    
-})
 
-app.use('/product',(req,res,next)=>{
-    // res.send(`<h1>${req.body}</h1>`)
-    console.log(req.body)
-    // res.redirect('/')
-})
+app.use('/admin',adminrouter)
+app.use('/shop',shop)
 
-app.use('/',(req,res,next)=>{
-    console.log('this is third middleware')
-    res.send('<h1>hello this is 200 code because I made some changes</h1>')
+app.use((req,res,next)=>{
+    res.status(404).send('<h1>Page not found </h1>')
 })
-
 
 app.listen(3000)
